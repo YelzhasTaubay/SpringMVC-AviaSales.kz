@@ -7,6 +7,10 @@
 
     <h1>This is Admin panel</h1>
 
+    <div>
+        <a href="/admin/registration">Register Admin or Cashier</a>
+    </div>
+
 
 </body>
 </html>

@@ -10,19 +10,15 @@
 
     </div>
 
-    <div>
-    You role: ${user.roles}
-
-    </div>
-
     <form action="/signout" method="post">
         To Log Out: <button>Sign out</button>
     </form>
-    
+
     <form action="/profile/delete">
         To Delete Myself: <input type="email" name="email" value="${user.email}">
         <button>Delete ${user.fullname}</button>
     </form>
+
 
 
 
