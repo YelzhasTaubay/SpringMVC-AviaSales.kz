@@ -10,4 +10,6 @@ public interface RoleDAO {
 
     List<Roles> getAllRoles();
 
+    void addRoles(Roles roles);
+
 }

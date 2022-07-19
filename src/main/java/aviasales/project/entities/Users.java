@@ -29,7 +29,7 @@ public class Users {
         this.password = password;
         this.fullname = fullname;
     }
-    public Users(Long id, String email, String password, String full_name,Set<Roles> roles) {
+    public Users(Long id, String email, String password, String fullname,Set<Roles> roles) {
         this.id = id;
         this.email=email;
         this.password = password;

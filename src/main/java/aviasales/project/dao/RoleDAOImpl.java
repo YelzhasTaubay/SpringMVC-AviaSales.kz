@@ -3,6 +3,7 @@ package aviasales.project.dao;
 import aviasales.project.entities.Roles;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.criteria.CriteriaBuilder;
@@ -38,8 +39,18 @@ public class RoleDAOImpl implements RoleDAO{
         List<Roles> allRoles=session.createQuery(query).list();
         session.close();
         return  allRoles;
-
     }
+
+    @Override
+    public void addRoles(Roles roles){
+        Session session=sessionFactory.openSession();
+        Transaction transaction=session.beginTransaction();
+        session.save(roles);
+        transaction.commit();
+        session.close();
+    }
+
+
 
 
 

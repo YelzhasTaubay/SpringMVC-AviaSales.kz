@@ -59,9 +59,6 @@ public class UserDAOImpl implements UserDAO{
         return users;
     }
 
-
-
-
     @Override
     public void addUser(Users user){
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
