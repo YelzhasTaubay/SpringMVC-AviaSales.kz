@@ -11,6 +11,18 @@
         <a href="/admin/registration">Register Admin or Cashier</a>
     </div>
 
+    <div>
+        <a href="admin/aircrafts">Самолеты</a>
+    </div>
+
+    <div>
+        <a href="admin/flights">Рейсы</a>
+    </div>
+
+    <div>
+        <a href="admin/prices">Цены</a>
+    </div>
+
 
 </body>
 </html>

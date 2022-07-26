@@ -1,7 +1,9 @@
 package aviasales.project.controllers;
 
+import aviasales.project.dao.AircraftsDAO;
 import aviasales.project.dao.RoleDAO;
 import aviasales.project.dao.UserDAO;
+import aviasales.project.entities.Aircrafts;
 import aviasales.project.entities.Roles;
 import aviasales.project.entities.Users;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,9 +12,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.HashSet;
@@ -27,6 +27,9 @@ public class AdminController {
 
     @Autowired
     RoleDAO roleDAO;
+
+    @Autowired
+    AircraftsDAO aircraftsDAO;
 
     public Users getUserData(){
         Users user = null;
@@ -65,6 +68,45 @@ public class AdminController {
         ModelAndView mw=new ModelAndView("/index");
         return mw;
     }
+
+    @RequestMapping(value = "admin/aircrafts",method = RequestMethod.GET)
+    public ModelAndView aircraft(){
+        ModelAndView mw=new ModelAndView("admin/aircraft");
+        return mw;
+    }
+
+    @RequestMapping(value = "admin/flights",method = RequestMethod.GET)
+    public ModelAndView flights(){
+        ModelAndView mw=new ModelAndView("admin/flights");
+        return mw;
+    }
+
+    @RequestMapping(value = "admin/prices",method = RequestMethod.GET)
+    public ModelAndView prices(){
+        ModelAndView mw=new ModelAndView("admin/prices");
+        return mw;
+    }
+
+    @RequestMapping(value = "/getIdByAircraft/{id}",method = RequestMethod.GET)
+    public Aircrafts getIdAircraft(@PathVariable int id){
+        Aircrafts aircraft=aircraftsDAO.getAircraftById((long) id);
+
+        System.out.println(aircraft.getModel()+"  "+aircraft.getName());
+        System.out.println(aircraft);
+        return aircraft;
+    }
+
+    @GetMapping(value = "/helloWorld")
+    public String hello(){
+
+        System.out.println("Hello World");
+
+        return "Hello World";
+    }
+
+
+
+
 
 
 

@@ -6,4 +6,6 @@ public interface AircraftsDAO {
 
     void addAircraft(Aircrafts aircraft);
 
+    Aircrafts getAircraftById(Long id);
+
 }
