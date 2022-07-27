@@ -1,9 +1,8 @@
 package aviasales.project.controllers;
 
-import aviasales.project.dao.AircraftsDAO;
-import aviasales.project.dao.RoleDAO;
-import aviasales.project.dao.UserDAO;
+import aviasales.project.dao.*;
 import aviasales.project.entities.Aircrafts;
+import aviasales.project.entities.Flights;
 import aviasales.project.entities.Roles;
 import aviasales.project.entities.Users;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +29,21 @@ public class AdminController {
 
     @Autowired
     AircraftsDAO aircraftsDAO;
+
+    @Autowired
+    CityDAO cityDAO;
+
+    @Autowired
+    CountryDAO countryDAO;
+
+    @Autowired
+    FlightDAO flightDAO;
+
+    @Autowired
+    PricesDAO pricesDAO;
+
+    @Autowired
+    RoutesDAO routesDAO;
 
     public Users getUserData(){
         Users user = null;
@@ -96,13 +110,8 @@ public class AdminController {
         return aircraft;
     }
 
-    @GetMapping(value = "/helloWorld")
-    public String hello(){
 
-        System.out.println("Hello World");
 
-        return "Hello World";
-    }
 
 
 

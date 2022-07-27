@@ -8,4 +8,10 @@ public interface AircraftsDAO {
 
     Aircrafts getAircraftById(Long id);
 
+    void updateAircraft(Aircrafts aircraft);
+
+    void deleteAircraft(Aircrafts aircraft);
+
+
+
 }

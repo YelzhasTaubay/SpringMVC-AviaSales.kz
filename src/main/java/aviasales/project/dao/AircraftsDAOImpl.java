@@ -38,14 +38,25 @@ public class AircraftsDAOImpl implements AircraftsDAO{
         return aircraft;
     }
 
-//    public Users getUserById(Long id){
-//        Session session=sessionFactory.openSession();
-//        CriteriaBuilder builder=session.getCriteriaBuilder();
-//        CriteriaQuery<Users> query=builder.createQuery(Users.class);
-//        Root<Users> root=query.from(Users.class);
-//        Predicate predicate=builder.equal(root.get("id"),id);
-//        Users user=session.createQuery(query.where(predicate)).uniqueResult();
-//        session.close();
-//        return user;
+    @Override
+    public void updateAircraft(Aircrafts aircraft) {
+        Session session=sessionFactory.openSession();
+        Transaction transaction=session.beginTransaction();
+        session.update(aircraft);
+        transaction.commit();
+        session.close();
+    }
+
+    @Override
+    public void deleteAircraft(Aircrafts aircraft) {
+        Session session=sessionFactory.openSession();
+        Transaction transaction=session.beginTransaction();
+        session.delete(aircraft);
+        transaction.commit();;
+        session.close();
+    }
+
+
+
 
 }

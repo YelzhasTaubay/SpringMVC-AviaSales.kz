@@ -1,9 +1,11 @@
 package aviasales.project.config;
 
 import aviasales.project.dao.*;
+import aviasales.project.entities.Flights;
 import aviasales.project.service.UserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableMBeanExport;
 import org.springframework.context.annotation.Scope;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -26,6 +28,30 @@ public class BeansConfig {
         return new AircraftsDAOImpl();
     }
 
+    @Bean
+    public CityDAO cityDAO(){
+        return new CityDAOImpl();
+    }
+
+    @Bean
+    public CountryDAO countryDAO(){
+        return new CountryDAOImpl();
+    }
+
+    @Bean
+    public FlightDAO flightDAO(){
+        return new FlightsDAOImpl();
+    }
+
+    @Bean
+    public PricesDAO pricesDAO(){
+        return new PricesDAOImpl();
+    }
+
+    @Bean
+    public RoutesDAO routesDAO(){
+        return new RoutesDAOImpl();
+    }
 
     @Bean
     public BCryptPasswordEncoder bcryptPasswordEncoder(){
