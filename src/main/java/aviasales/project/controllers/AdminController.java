@@ -110,7 +110,22 @@ public class AdminController {
         return aircraft;
     }
 
+    @RequestMapping(value = "/saveAircraft",method = RequestMethod.GET)
+    public  void saveAircraft(@RequestBody Aircrafts aircraft){
+        aircraftsDAO.addAircraft(aircraft);
+    }
 
+    @RequestMapping(value = "/updateAircraft",method = RequestMethod.GET)
+    public void updateAircraft(@RequestBody Aircrafts aircraft){
+        aircraftsDAO.updateAircraft(aircraft);
+    }
+
+    @RequestMapping(value = "deleteAircraft",method = RequestMethod.GET)
+    public void deleteAircraft(@RequestParam long id){
+        Aircrafts aircraft=aircraftsDAO.getAircraftById(id);
+        aircraftsDAO.deleteAircraft(aircraft);
+        System.out.println("Aircraft deleted successfully");
+    }
 
 
 

@@ -54,6 +54,9 @@ public class BeansConfig {
     }
 
     @Bean
+    public TicketsDAO ticketsDAO(){return new TicketsDAOImpl();}
+
+    @Bean
     public BCryptPasswordEncoder bcryptPasswordEncoder(){
         return new BCryptPasswordEncoder();
     }
