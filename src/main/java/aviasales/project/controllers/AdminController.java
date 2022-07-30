@@ -1,10 +1,7 @@
 package aviasales.project.controllers;
 
 import aviasales.project.dao.*;
-import aviasales.project.entities.Aircrafts;
-import aviasales.project.entities.Flights;
-import aviasales.project.entities.Roles;
-import aviasales.project.entities.Users;
+import aviasales.project.entities.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -125,6 +122,12 @@ public class AdminController {
         Aircrafts aircraft=aircraftsDAO.getAircraftById(id);
         aircraftsDAO.deleteAircraft(aircraft);
         System.out.println("Aircraft deleted successfully");
+    }
+
+    @RequestMapping(value = "/saveCity",method = RequestMethod.GET)
+    public void saveCity(@RequestBody Cities cities){
+        cityDAO.addCity(cities);
+        System.out.println("City saved successfully");
     }
 
 
