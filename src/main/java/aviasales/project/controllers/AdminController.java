@@ -130,6 +130,18 @@ public class AdminController {
         System.out.println("City saved successfully");
     }
 
+    @RequestMapping(value = "/updateCity",method = RequestMethod.GET)
+    public void updateCity(@RequestBody Cities city){
+        cityDAO.updateCity(city);
+        System.out.println("City has been updated");
+    }
+
+    @RequestMapping(value = "/deleteCity",method = RequestMethod.GET)
+    public void deleteCity(@RequestBody Cities city){
+        cityDAO.deleteCity(city);
+        System.out.println("City deleted successfully");
+    }
+
 
 
 
